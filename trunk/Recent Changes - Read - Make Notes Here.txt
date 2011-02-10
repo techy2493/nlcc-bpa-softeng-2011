@@ -7,3 +7,4 @@ added 2 lines of code to the server but both are incorrect - 2/9/11
 Found a good website for sockets
 --http://download.oracle.com/javase/tutorial/networking/sockets/clientServer.html
 --good tutorial but I need to know our socket port number to test it out
+---Any port will work above 1500
