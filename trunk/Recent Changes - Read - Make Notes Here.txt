@@ -3,3 +3,7 @@ Added Server - 2/4/11
 
 added 2 lines of code to the server but both are incorrect - 2/9/11
 --both lines are used for the socket factory(i could not find a lot of information on how to do the code for this thats y its wrong)
+
+Found a good website for sockets
+--http://download.oracle.com/javase/tutorial/networking/sockets/clientServer.html
+--good tutorial but I need to know our socket port number to test it out
