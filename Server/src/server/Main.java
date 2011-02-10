@@ -1,22 +1,22 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package server;
 
-/**
- *
- * @author AbelB
- */
+import java.net.ServerSocket;
+
 public class Main {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        java.net.SocketImplFactory();
-        java.net.Socket.setSocketImplFactory(null);
+     try {
+    serverSocket = new ServerSocket(4444);
+} catch (IOException e) {
+    System.out.println("Could not listen on port: 4444");
+    System.exit(-1);
+}
+
+
     }
 
 }
