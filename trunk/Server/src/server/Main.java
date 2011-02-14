@@ -2,6 +2,7 @@
 package server;
 
 import java.net.ServerSocket;
+import java.io.*;
 
 public class Main {
 
@@ -10,7 +11,7 @@ public class Main {
      */
     public static void main(String[] args) {
      try {
-    serverSocket = new ServerSocket(4444);
+    ServerSocket sock = new ServerSocket(4444);
 } catch (IOException e) {
     System.out.println("Could not listen on port: 4444");
     System.exit(-1);
