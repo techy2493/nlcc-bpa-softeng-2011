@@ -10,12 +10,18 @@ import java.net.*;
  * @author AbelB
  */
 public class Net_Interface {
-//TODO: Change void to socket return type
-public static void CreateConnection(String ip) {
+    private String localIP;
+
+    public void UpdateLocalIP(String ip){
+    localIP = ip;
+    }
+
+    //TODO: Change void to socket return type
+    public void CreateConnection(String ip) {
 
     }
-//TODO: Add argument- Socket to Close
-public static void CloseConnection(){
+    //TODO: Add argument- Socket to Close
+    public static void CloseConnection(){
 
     }
 }
