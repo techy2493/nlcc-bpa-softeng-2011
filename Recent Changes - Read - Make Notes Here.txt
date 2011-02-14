@@ -8,3 +8,5 @@ Found a good website for sockets
 --http://download.oracle.com/javase/tutorial/networking/sockets/clientServer.html
 --good tutorial but I need to know our socket port number to test it out
 ---Any port will work above 1500
+
+Got the sockets connecting(no error messages but no other sign of success) 2/14/2010
