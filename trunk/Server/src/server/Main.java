@@ -2,6 +2,8 @@
 package server;
 
 import java.net.ServerSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
 import java.io.*;
 
 
@@ -12,13 +14,15 @@ public class Main {
      */
     public static void main(String[] args) {
         //Open Connection  Query
-        try
-        {
-            ServerSocket QuerySocket = new ServerSocket(4444);
-        } catch (IOException e) {
-        System.out.println("Could not listen on port: 4444");
-        System.exit(-1);
+        ServerSocket QuerySocket = Net_Interface.CreateConnection(4444);
+        try{
+        QuerySocket.setSoTimeout(1);
+        }catch(SocketException e) {}
+        Player Players[] = new Player[0];
+        while(true){
+            QuerySocket.accept();
         }
+        //Players[0] = new Player("test");
 
 
     }

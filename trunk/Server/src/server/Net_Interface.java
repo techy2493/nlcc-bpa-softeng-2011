@@ -14,17 +14,16 @@ import java.net.InetAddress;
 public class Net_Interface {
     
     InetAddress localIP;
-
     public void UpdateLocalIP(InetAddress ip){
     localIP = ip;
     }
 
     //TODO: Change void to socket return type
-    public static ServerSocket CreateConnection(InetAddress ip) {
+    public static ServerSocket CreateConnection(int port) {
         try{
-            return new ServerSocket(4445, 75, ip);
+            return new ServerSocket(port);
         }catch (java.io.IOException e) {
-            System.out.println("Could not establish connection with" + ip);
+            System.out.println("Could not establish connection with" + port);
             return null;
         }
     }
@@ -36,6 +35,5 @@ public class Net_Interface {
 
     }
  }
-}
 
 
