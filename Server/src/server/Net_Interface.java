@@ -23,7 +23,7 @@ public class Net_Interface {
         try{
             return new ServerSocket(port);
         }catch (java.io.IOException e) {
-            System.out.println("Could not establish connection with" + port);
+            System.out.println("Could not establish connection on port: " + port);
             return null;
         }
     }

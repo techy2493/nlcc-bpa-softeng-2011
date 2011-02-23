@@ -4,14 +4,17 @@ package server;
 import java.net.ServerSocket;
 import java.net.SocketException;
 import java.io.IOException;
-import java.util.Scanner;
-
+import java.io.Console;
 
 public class Main {
         //Create Socket to accept connection queries
         static ServerSocket QuerySocket;
         static int PlayersConnected = 0;
         static boolean Pause = false;
+        //Create Scanner Object
+        static Scanner2 keyboard = new Scanner2(System.in);
+        static Console console = System.console();
+
     /**
      * @param args the command line arguments
      */
@@ -19,9 +22,8 @@ public class Main {
         //Finish creating ServerSocket : QuerySocket
 //TODO: Change port 4444 to accept a port from args
         QuerySocket = Net_Interface.CreateConnection(4444);
-        //Create Scanner Object
-        Scanner keyboard = new Scanner(System.in);
-        try {
+        
+        //try {
         //Set Timeout of ServerSocket : QuerySocket
         try {
         QuerySocket.setSoTimeout(1);
@@ -31,7 +33,7 @@ public class Main {
         //Keep the server running, run all maintenance methods.
         while(!Pause){
              //START: Accept a new player to connect
-             Player NewPlayer = CreatePlayer();
+            Player NewPlayer = CreatePlayer();
              if (NewPlayer != null) {
              resizeArray(Players, (java.lang.reflect.Array.getLength(Players) + 1));
              Players[java.lang.reflect.Array.getLength(Players)] = NewPlayer;
@@ -39,19 +41,16 @@ public class Main {
              //END
 
              //START: Check for input
-             if (keyboard.hasNext("/*")) {
-                 System.out.println("There is input"); // TEMP DEBUG LINE REMOVE
-                 Commands.run(keyboard.nextLine());
-             }
-             System.out.println("running");
+             Commands.run(console.readLine());
+             //System.out.println("running");
              //END
              }
 
 
-         }catch(Exception e) {
-            System.out.println("Error : 1337 : Please contact the developers of this application for support.");
-            Pause = true;
-        }
+         //}catch(Exception e) {
+          // System.out.println("Error : 1337 : Please contact the developers of this application for support.");
+         //   Pause = true;
+        //}
     }
 
     public static Player CreatePlayer() {
