@@ -10,3 +10,9 @@ Found a good website for sockets
 ---Any port will work above 1500
 
 Got the sockets connecting(no error messages but no other sign of success) 2/14/2010
+
+
+(3/3/11)
+designed an error message system we may want to use to find errors faster and easier that before(ill add anouther .txt file called Error codes
+added a variable for every item but the socket number in the database, it will make changing locations(if needed[as in ever]) easier than before
+updated the codes already placed to the new system(could only find one but thought we had two)

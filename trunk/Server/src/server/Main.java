@@ -81,7 +81,7 @@ public class Main {
                   System.arraycopy (oldArray,0,newArray,0,preserveLength);
             return newArray;
         }catch (Exception e) { 
-        System.out.println("Error : 2001 : Please contact the developers of this application for support.");
+        System.out.println("Error : M2084 : Please contact the developers of this application for support.");
         Pause = true;
         return oldArray;
         }
