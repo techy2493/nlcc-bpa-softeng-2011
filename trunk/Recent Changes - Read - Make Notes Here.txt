@@ -1,18 +1,26 @@
-Added Server - 2/4/11
---Server is a basic NetBeans Project
+(2/4/11)Brandyn Abel
+Added Server (Server is a basic NetBeans Project)
 
-added 2 lines of code to the server but both are incorrect - 2/9/11
+
+(2/9/11)Jeremy Shearin
+added 2 lines of code to the server but both are incorrect
 --both lines are used for the socket factory(i could not find a lot of information on how to do the code for this thats y its wrong)
 
+
+(unkown date)Brandyn Abel
 Found a good website for sockets
 --http://download.oracle.com/javase/tutorial/networking/sockets/clientServer.html
 --good tutorial but I need to know our socket port number to test it out
 ---Any port will work above 1500
 
-Got the sockets connecting(no error messages but no other sign of success) 2/14/2010
+
+(2/14/2010)Jeremy Shearin
+Got the sockets connecting(no error messages but no other sign of success) 
 
 
-(3/3/11)
-designed an error message system we may want to use to find errors faster and easier that before(ill add anouther .txt file called Error codes
+(3/3/11)Jeremy Shearin
+designed an error message system we may want to use to find errors faster and easier than before(ill add anouther .txt file called Error codes
 added a variable for every item but the socket number in the database, it will make changing locations(if needed[as in ever]) easier than before
-updated the codes already placed to the new system(could only find one but thought we had two)
+updated the error codes already placed to the new system(could only find one but thought we had two)
+copied the code from the testclient(which would not load) into the test building java client, I have not yet deleted the testclient
+Reformated the Recent changes page to support multiple lines(one line per action instead of one line per day)
