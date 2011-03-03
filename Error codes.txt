@@ -1,0 +1,13 @@
+Classes code                 Who's Code                     Line number
+
+Cal - Calculations            1. Our Code                     -3 digits
+Com - Commands                2. Someone elses code           -ex: 3 = 003
+D - Data                                                      -number is the line of the error message
+M - Main
+N - Net_interface
+P - Player
+S - Scanner
+
+ex:
+D2013  D = Data class  2 = someone elses code   013 = line 13 is the error message
+M1235  M = Main        1 = our code             235 = line 235 is the error message
