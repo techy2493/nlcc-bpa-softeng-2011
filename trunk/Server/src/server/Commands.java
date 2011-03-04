@@ -11,6 +11,6 @@ package server;
  */
 public class Commands {
     public static void run(String cmd){
-
+        System.out.println(cmd);
     }
 }

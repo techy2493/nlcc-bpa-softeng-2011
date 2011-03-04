@@ -2,65 +2,31 @@
 package server;
 
 import java.net.ServerSocket;
-import java.net.SocketException;
-import java.io.IOException;
-import java.io.Console;
+import java.util.Scanner;
+import java.net.Socket;
+import java.lang.Runnable;
+import java.lang.Thread;
 
-public class Main {
-        //Create Socket to accept connection queries
-        static ServerSocket QuerySocket;
+public class Main implements Runnable {
+        Thread thread = new Thread(this);
         static int PlayersConnected = 0;
-        static boolean Pause = false;
-        //Create Scanner Object
-        static Scanner2 keyboard = new Scanner2(System.in);
-        static Console console = System.console();
+        static Player players[] = new Player[0];
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        //Finish creating ServerSocket : QuerySocket
-//TODO: Change port 4444 to accept a port from args
-        QuerySocket = Net_Interface.CreateConnection(4444);
-        
-        //try {
-        //Set Timeout of ServerSocket : QuerySocket
-        try {
-        QuerySocket.setSoTimeout(1);
-        }catch (SocketException e) {}
-        //Declare Players Array - Used to store all player objects
-        Player Players[] = new Player[0];
-        //Keep the server running, run all maintenance methods.
-        while(!Pause){
-             //START: Accept a new player to connect
-            Player NewPlayer = CreatePlayer();
-             if (NewPlayer != null) {
-             resizeArray(Players, (java.lang.reflect.Array.getLength(Players) + 1));
-             Players[java.lang.reflect.Array.getLength(Players)] = NewPlayer;
-             }
-             //END
-
-             //START: Check for input
-             Commands.run(console.readLine());
-             //System.out.println("running");
-             //END
-             }
-
-
-         //}catch(Exception e) {
-          // System.out.println("Error : 1337 : Please contact the developers of this application for support.");
-         //   Pause = true;
-        //}
+    public static void main(String[] args){
+        ServerSocketNew ServerSock = new ServerSocketNew();
+        ServerSock.Handle();
+    }
+    public void run(){
+        Scanner keyboard = new Scanner(System.in);
+        while(true){
+        Commands.run(keyboard.nextLine());
+        }
     }
 
-    public static Player CreatePlayer() {
-        try {
-            PlayersConnected += 1;
-            Player NewPlayer = new Player(PlayersConnected, QuerySocket.accept());
-            return NewPlayer;
-        }catch(SocketException e){} catch (IOException e) {}
-        return null;
-    }
+
 /**
 * Reallocates an array with a new size, and copies the contents
 * of the old array to the new array.
@@ -80,10 +46,40 @@ public class Main {
             if (preserveLength > 0)
                   System.arraycopy (oldArray,0,newArray,0,preserveLength);
             return newArray;
-        }catch (Exception e) { 
+        }catch (Exception e) {
         System.out.println("Error : M2084 : Please contact the developers of this application for support.");
-        Pause = true;
+        //Pause = true;
         return oldArray;
         }
     }
+    
+
+    private static class ServerSocketNew {
+            private ServerSocket ServerSock;
+            private int port = 4444;
+            public ServerSocketNew(){
+                try {
+                     ServerSock = new ServerSocket(port);
+                } catch (Exception e) {System.out.println("Could not open connection to port 4444");}
+            }
+            public void Handle(){
+                while(true){
+                    try {
+                        Socket socket = ServerSock.accept();
+                         resizeArray(players, (java.lang.reflect.Array.getLength(players)) + 1);
+                         players[java.lang.reflect.Array.getLength(players)] = CreatePlayer(socket);
+
+                    }catch (Exception e) {System.out.println("Could not acception connection.");}
+                }
+            }
+            public static Player CreatePlayer(Socket sock) {
+                PlayersConnected += 1;
+                Player NewPlayer = new Player(PlayersConnected);
+                return NewPlayer;
+            }
+
+     }
+
 }
+
+    
