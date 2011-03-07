@@ -27,3 +27,4 @@ Reformated the Recent changes page to support multiple lines(one line per action
 
 (3/7/11)Jeremy Shearin
 finally got my testbuildingjavaclient code to commit, i had to place it in a folder to commit it so i put it in the testclient folder(no further down then that)
+             -The file needs to be changed to main but im afraid if i do that ill lose it in a file somewhere not knowing what main.java is what
