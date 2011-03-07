@@ -24,3 +24,6 @@ added a variable for every item but the socket number in the database, it will m
 updated the error codes already placed to the new system(could only find one but thought we had two)
 copied the code from the testclient(which would not load) into the test building java client, I have not yet deleted the testclient
 Reformated the Recent changes page to support multiple lines(one line per action instead of one line per day)
+
+(3/7/11)Jeremy Shearin
+finally got my testbuildingjavaclient code to commit, i had to place it in a folder to commit it so i put it in the testclient folder(no further down then that)
