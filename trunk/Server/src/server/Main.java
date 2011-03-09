@@ -8,7 +8,6 @@ import java.lang.Runnable;
 import java.lang.Thread;
 
 public class Main implements Runnable {
-        Thread thread = new Thread(this);
         static int PlayersConnected = 0;
         static Player players[] = new Player[0];
 
@@ -16,13 +15,16 @@ public class Main implements Runnable {
      * @param args the command line arguments
      */
     public static void main(String[] args){
+        Thread mainthread = new Thread();
+        mainthread.start();
         ServerSocketNew ServerSock = new ServerSocketNew();
         ServerSock.Handle();
     }
     public void run(){
         Scanner keyboard = new Scanner(System.in);
         while(true){
-        Commands.run(keyboard.nextLine());
+            if (keyboard.hasNext())
+                Commands.run(keyboard.nextLine());
         }
     }
 
@@ -36,12 +38,11 @@ public class Main implements Runnable {
 * @author Christian d'Heureuse (www.source-code.biz, www.inventec.ch/chdh)
 * License: Free / LGPL
 */
-    private static Object resizeArray (Object oldArray, int newSize) {
+    private static Player[] resizeArray (Player[] oldArray, int newSize) {
         try {
             int oldSize = java.lang.reflect.Array.getLength(oldArray);
             Class elementType = oldArray.getClass().getComponentType();
-            Object newArray = java.lang.reflect.Array.newInstance(
-                 elementType,newSize);
+            Player[] newArray = new Player[newSize];
             int preserveLength = Math.min(oldSize,newSize);
             if (preserveLength > 0)
                   System.arraycopy (oldArray,0,newArray,0,preserveLength);
@@ -66,10 +67,15 @@ public class Main implements Runnable {
                 while(true){
                     try {
                         Socket socket = ServerSock.accept();
-                         resizeArray(players, (java.lang.reflect.Array.getLength(players)) + 1);
-                         players[java.lang.reflect.Array.getLength(players)] = CreatePlayer(socket);
+                        System.out.println("Connection Accepted");
+                        System.out.println(java.lang.reflect.Array.getLength(players));
+                        players = resizeArray(players, (java.lang.reflect.Array.getLength(players)) + 1);
+                        System.out.println(java.lang.reflect.Array.getLength(players));
+                        System.out.println("Array Resized");
+                        players[java.lang.reflect.Array.getLength(players) - 1] = CreatePlayer(socket);
+                        System.out.println("New Player Made");
 
-                    }catch (Exception e) {System.out.println("Could not acception connection.");}
+                    }catch (Exception e) {System.out.println(e);}
                 }
             }
             public static Player CreatePlayer(Socket sock) {
