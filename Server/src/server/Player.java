@@ -28,7 +28,8 @@ private static class Handler implements Runnable{
         thread.start();
     }
     public void run(){
-      while(true){ 
+      while(true){
+          System.out.println("Running");
         try{
 //
 // Read a message sent by client application
@@ -37,14 +38,12 @@ private static class Handler implements Runnable{
     ObjectInputStream ois = new ObjectInputStream(sock.getInputStream());
     String message = (String) ois.readObject();
     System.out.println("Message Received: " + message);
-    // Send a response information to the client application
+    // Send a response information to the client applica    System.out.println("Message Received: " + message);tion
     ObjectOutputStream oos = new ObjectOutputStream(sock.getOutputStream());
     oos.writeObject("Hi...");
     System.out.println("Waiting for client message...");
-    } catch (IOException e) {
-    e.printStackTrace();
-    } catch (ClassNotFoundException e) {
-    e.printStackTrace();
+    } catch (Exception e) {
+    System.out.println(e);
 }
 
 }
