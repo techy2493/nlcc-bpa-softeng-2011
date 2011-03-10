@@ -28,3 +28,11 @@ Reformated the Recent changes page to support multiple lines(one line per action
 (3/7/11)Jeremy Shearin
 finally got my testbuildingjavaclient code to commit, i had to place it in a folder to commit it so i put it in the testclient folder(no further down then that)
              -The file needs to be changed to main but im afraid if i do that ill lose it in a file somewhere not knowing what main.java is what
+
+(3/10/11)Jeremy Shearin
+Put code into the client that should send the username and password in a form like this      username , password
+	-Cant Test right now but it shows no errors
+	-the code is  output.writeBytes(Username + " , " +Password);
+		output is the variable and there was no println option like the site im using shows - http://download.oracle.com/javase/tutorial/networking/sockets/clientServer.html
+		further searching has conserned me, i only have the option to send the string as a string of bytes or a string of char
+found a line of code to close the conection but not sure how to use it, page 13 of this pdf site/file - http://www.cn-java.com/download/data/book/socket_chat.pdf
