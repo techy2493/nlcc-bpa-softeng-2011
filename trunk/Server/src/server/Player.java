@@ -19,15 +19,24 @@ import java.lang.Thread;
  * @author AbelB
  */
 
-public class Player {
-private static class Handler implements Runnable{
+public class Player extends Thread{
+
+    //Item Sub-class
+    private class Item {
+        public int AddItem(int ID) {
+            //TODO: ADD CODE TO STORE ITEM STATS
+            
+            //Return 0 for a valid execution
+            return 0;
+        }
+    }
     private Socket sock;
-    public Handler(Socket sock){
+    public Player(int UID, Socket sock){
         this.sock = sock;
         Thread thread = new Thread(this);
         thread.start();
     }
-    public void run(){
+        public void run(){
       while(true){
           System.out.println("Running");
         try{
@@ -48,19 +57,6 @@ private static class Handler implements Runnable{
 
 }
 }
-}
-    //Item Sub-class
-    private class Item {
-        public int AddItem(int ID) {
-            //TODO: ADD CODE TO STORE ITEM STATS
-            
-            //Return 0 for a valid execution
-            return 0;
-        }
-    }
-    public Player(int UID){
-        //TODO: Load data from database
-    }
     //Player Items
     Item Items[];
 

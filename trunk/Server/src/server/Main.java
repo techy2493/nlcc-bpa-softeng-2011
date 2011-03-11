@@ -80,7 +80,7 @@ public class Main implements Runnable {
             }
             public static Player CreatePlayer(Socket sock) {
                 PlayersConnected += 1;
-                Player NewPlayer = new Player(PlayersConnected);
+                Player NewPlayer = new Player(PlayersConnected, sock);
                 return NewPlayer;
             }
 
