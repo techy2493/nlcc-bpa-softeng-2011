@@ -13,7 +13,8 @@ public class Main {
 
     public static void main(String[] args) {
         try{
-        InetAddress site = InetAddress.getByName("java.intellectualhotspot.com");
+       // InetAddress site = InetAddress.getByName("java.intellectualhotspot.com");
+        InetAddress site = InetAddress.getByAddress(Byte.parseByte("10.4.111.16"));
         Socket sock  = new Socket(site.getHostName(), 4444);
                  
        ObjectOutputStream output = new ObjectOutputStream(sock.getOutputStream());
