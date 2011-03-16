@@ -10,5 +10,7 @@ package server;
  * @author AbelB
  */
 public class Logging {
-
+    public static void log(String msg){
+        //Log to file
+    }
 }
