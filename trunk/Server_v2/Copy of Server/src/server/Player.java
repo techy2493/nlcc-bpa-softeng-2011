@@ -13,6 +13,8 @@ import java.io.ObjectOutputStream;
 import java.lang.ClassNotFoundException;
 import java.lang.Runnable;
 import java.lang.Thread;
+import java.io.EOFException;
+
 
 /**
  *
@@ -43,10 +45,13 @@ public class Player extends Thread{
 //
 // Read a message sent by client application
 //
+    try{
+        ObjectInputStream ois = new ObjectInputStream(sock.getInputStream());
+        String message = (String) ois.readObject();
+        System.out.println("Message Received: " + message);
+    }catch(EOFException e) {};
 
-    ObjectInputStream ois = new ObjectInputStream(sock.getInputStream());
-    String message = (String) ois.readObject();
-    System.out.println("Message Received: " + message);
+    
     // Send a response information to the client applica    System.out.println("Message Received: " + message);tion
     ObjectOutputStream oos = new ObjectOutputStream(sock.getOutputStream());
     oos.writeObject("Hi...");
