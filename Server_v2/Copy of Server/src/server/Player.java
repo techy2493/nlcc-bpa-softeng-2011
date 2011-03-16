@@ -5,16 +5,10 @@
 
 package server;
 import java.net.Socket;
-import java.net.SocketException;
 import java.io.IOException;
-import java.io.Console;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.lang.ClassNotFoundException;
-import java.lang.Runnable;
-import java.lang.Thread;
 import java.io.EOFException;
-
 
 /**
  *
@@ -48,21 +42,29 @@ public class Player extends Thread{
     try{
         ObjectInputStream ois = new ObjectInputStream(sock.getInputStream());
         String message = (String) ois.readObject();
-        System.out.println("Message Received: " + message);
+        Commands.run("client."+message);
     }catch(EOFException e) {};
-
-    
-    // Send a response information to the client applica    System.out.println("Message Received: " + message);tion
-    ObjectOutputStream oos = new ObjectOutputStream(sock.getOutputStream());
-    oos.writeObject("Hi...");
-    System.out.println("Waiting for client message...");
     } catch (Exception e) {
-    System.out.println(e);
+    System.out.println("Client Communication Error: "+e);
+    try{
+    sock.close();
+    }catch(IOException ex){System.out.println(ex);}
+    this.stop();
 }
 
 }
 }
+     public int sendMessage(String msg){
+        //Send a response information to the client applicaion
+         try{
+        ObjectOutputStream oos = new ObjectOutputStream(sock.getOutputStream());
+        oos.writeObject(msg);
+         }catch(Exception e){return 0;}
+         return 0;
+     }
+     public void loadPlayer(){
+         //Load all player data
+     }
     //Player Items
     Item Items[];
-
 }

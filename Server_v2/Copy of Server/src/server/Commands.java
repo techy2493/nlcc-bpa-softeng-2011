@@ -10,7 +10,22 @@ package server;
  * @author AbelB
  */
 public class Commands {
-    public static void run(String cmd){
-        System.out.println("Got Command");
+    //Run our commands
+    public static int run(String cmd){
+        String[] Command = cmd.split(":");
+        String[] Args = Command[3].split(",");
+        //Is the command from the server
+        if (Command[1].equals("Server")){
+             if(Command[2].equals("Login")){ try{ Login(Args);}catch(Exception e){Logging.log(Command[1]+":"+Command[2]+" Error");return 3;}}
+             else if(Command[2].equals("Logout")){ try{ Logout(Args);}catch(Exception e){Logging.log(Command[1]+":"+Command[2]+" Error");return 3;}}
+             else return 2;
+        //Else, is the command from a client
+        }else if (Command[1].equals("Client")){
+
+        //Else, don't know where it came from, report a problem to calling method
+        }else{
+            return 1;
+        }
+        return 1;
     }
 }
