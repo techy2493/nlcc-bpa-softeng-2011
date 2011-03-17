@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
        String Username, Password, Command, Player;
        Boolean Quit = false;
-       Integer dice, Heal;
+       Integer Heal;
        
        Scanner scan = new Scanner(System.in);
        System.out.println("Username");
@@ -37,7 +37,7 @@ public class Main {
         Socket sock  = new Socket(site.getHostName(), 4444);
                  
        ObjectOutputStream output = new ObjectOutputStream(sock.getOutputStream());
-       output.writeObject("This is the output comments");
+       output.writeObject("Hi.");
 
        ObjectInputStream input = new ObjectInputStream(sock.getInputStream());
        String stringinput = (String) input.readObject();
@@ -88,7 +88,7 @@ while(Quit == false)
          Integer dice;
 Random rand = new Random();
 dice = rand.nextInt(12);
-System.out.println(dice);
+System.out.println("Dice roll: " + dice);
      }
    
     }
