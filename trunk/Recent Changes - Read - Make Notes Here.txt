@@ -36,3 +36,17 @@ Put code into the client that should send the username and password in a form li
 		output is the variable and there was no println option like the site im using shows - http://download.oracle.com/javase/tutorial/networking/sockets/clientServer.html
 		further searching has conserned me, i only have the option to send the string as a string of bytes or a string of char
 found a line of code to close the conection but not sure how to use it, page 13 of this pdf site/file - http://www.cn-java.com/download/data/book/socket_chat.pdf
+
+(3/17/11)Jeremy Shearin
+did major code fixes to fix and error that would have allowed the user to connect more than once(everytime he attacked and healed)
+that fix also fixed an error that disconnected the user before it allowed for the actions
+if the user does not get a connection he cannot do the actions(making testing harder but it had to be done)
+
+Finished the client for the following actions(untill revision for actual gameplay)
+	attack
+	random dice
+	heal
+	Skip Turn
+	quit
+Tested with server and found that the server only goes crazy when it loses connection with me, i got it to stop while i was going through the actions but it lost control after i quit
+the server accepted my first sent message "This is the output comments" and showed it on your screen
