@@ -4,13 +4,17 @@
  */
 
 package server;
-
+import java.io.PrintWriter;
 /**
  *
  * @author AbelB
  */
 public class Logging {
     public static void log(String msg){
-        //Log to file
+        try{
+        PrintWriter logfile = new PrintWriter("Logs.txt");
+        logfile.append(msg);
+        System.out.println(msg);
+        }catch (Exception e){System.out.println("Error accessing log file, logs could not be written.");}
     }
 }

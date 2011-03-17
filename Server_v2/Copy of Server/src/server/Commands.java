@@ -16,7 +16,7 @@ public class Commands {
         String[] Args = Command[3].split(",");
         //Is the command from the server
         if (Command[1].equals("Server")){
-             if(Command[2].equals("Login")){ try{ Login(Args);}catch(Exception e){Logging.log(Command[1]+":"+Command[2]+" Error");return 3;}}
+             if(Command[2].equals("Login")){ try{ Login(Args); }catch(Exception e){Logging.log(Command[1]+":"+Command[2]+" Error");return 3;}}
              else if(Command[2].equals("Logout")){ try{ Logout(Args);}catch(Exception e){Logging.log(Command[1]+":"+Command[2]+" Error");return 3;}}
              else return 2;
         //Else, is the command from a client
@@ -26,6 +26,13 @@ public class Commands {
         }else{
             return 1;
         }
-        return 1;
+        return 0;
     }
+    public static void Login(String[] Args){
+        
+    }
+    public static void Logout(String[] Args){
+        
+    }
+
 }
