@@ -17,15 +17,6 @@ import java.io.EOFException;
 
 public class Player extends Thread{
 
-    //Item Sub-class
-    private class Item {
-        public int AddItem(int ID) {
-            //TODO: ADD CODE TO STORE ITEM STATS
-            
-            //Return 0 for a valid execution
-            return 0;
-        }
-    }
     private Socket sock;
     public Player(int UID, Socket sock){
         this.sock = sock;
@@ -66,5 +57,6 @@ public class Player extends Thread{
          //Load all player data
      }
     //Player Items
+    //Index corrolating to slot #
     Item Items[];
 }

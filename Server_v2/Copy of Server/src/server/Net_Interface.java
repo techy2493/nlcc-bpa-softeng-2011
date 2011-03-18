@@ -27,7 +27,7 @@ public class Net_Interface {
             return null;
         }
     }
-    //TODO: Add argument- Socket to Close
+    //Close Server Socket
     public static void CloseConnection(ServerSocket connection){
         try{
         connection.close();
